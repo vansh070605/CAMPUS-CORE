@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CampusCore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Optional: Add your own CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CampusCore</h1>
+  <button id="testWrite">Test Firestore Write</button>
+  <div id="result"></div>
+   
+
+<h2>Login or Signup</h2>
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<button id="loginBtn">Login</button>
+<button id="signupBtn">Sign Up</button>
+<div id="authStatus"></div>
+
+<h2>Task Planner</h2>
+<input type="text" id="taskInput" placeholder="Enter a new task">
+<button id="addTaskBtn">Add Task</button>
+<ul id="taskList"></ul>
+<div id="taskStatus"></div>
+
+<h2>Mood & Motivation Tracker</h2>
+<label for="moodInput">How do you feel today?</label>
+<select id="moodInput">
+  <option value="😀">😀 Happy</option>
+  <option value="🙂">🙂 Good</option>
+  <option value="😐">😐 Neutral</option>
+  <option value="😔">😔 Sad</option>
+  <option value="😩">😩 Stressed</option>
+</select>
+<button id="addMoodBtn">Save Mood</button>
+<ul id="moodList"></ul>
+<div id="moodStatus"></div>
+
+
+<h2>Expense Tracker</h2>
+<input type="number" id="expenseAmount" placeholder="Amount">
+<select id="expenseCategory">
+  <option value="Food">Food</option>
+  <option value="Travel">Travel</option>
+  <option value="Books">Books</option>
+  <option value="Other">Other</option>
+</select>
+<input type="text" id="expenseNote" placeholder="Note (optional)">
+<button id="addExpenseBtn">Add Expense</button>
+<ul id="expenseList"></ul>
+<div id="expenseStatus"></div>
+
+
+  <!-- Firebase v8 SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+  <!-- Your app's JS file -->
+  <script src="app.js"></script>
+</body>
+</html>
