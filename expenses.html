@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CampusCore — Expense Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CampusCore</h1>
+  <nav>
+    <a href="tasks.html">Tasks</a>
+    <a href="mood.html">Mood Tracker</a>
+    <a href="expenses.html">Expense Tracker</a>
+    <a href="index.html" id="logoutBtn">Logout</a>
+  </nav>
+  <div class="glass-card">
+    <h2>Expense Tracker</h2>
+    <input type="number" id="expenseAmount" placeholder="Amount">
+    <select id="expenseCategory">
+      <option value="Food">Food</option>
+      <option value="Travel">Travel</option>
+      <option value="Books">Books</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="text" id="expenseNote" placeholder="Note (optional)">
+    <button id="addExpenseBtn">Add Expense</button>
+    <ul id="expenseList"></ul>
+    <div id="expenseStatus"></div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="app.js"></script>
+  <script src="expenses.js"></script>
+</body>
+</html>
