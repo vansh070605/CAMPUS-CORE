@@ -1,0 +1,142 @@
+body {
+  background: #f8f9fa;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 12px #0001;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+form input, form select, form button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.task-text {
+  flex: 1;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.due-date {
+  color: #555;
+}
+
+.priority {
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.priority.High {
+  background: #ffdddd;
+  color: #d00;
+}
+.priority.Medium {
+  background: #fff3cd;
+  color: #856404;
+}
+.priority.Low {
+  background: #d4edda;
+  color: #155724;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #d00;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+}
+
+.tip {
+  font-size: 0.9em;
+  color: #888;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.navbar {
+  background: #007bff;
+  padding: 0;
+  margin-bottom: 24px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 8px #0002;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 16px;
+}
+.navbar li {
+  margin: 0 12px;
+}
+.navbar a {
+  display: block;
+  padding: 14px 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  transition: background 0.2s;
+}
+.navbar a:hover, .navbar a.active {
+  background: #0056b3;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Core To-Do List</title>
+  <link rel="stylesheet" href="../css/to-do.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="to-do.html">To-Do List</a></li>
+      <li><a href="cal.html">Calendar</a></li>
+      <li><a href="notes.html">Notes</a></li>
+      <li><a href="files.html">Files</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Campus Core To-Do List</h2>
+    <form id="todo-form">
+      <input type="text" id="task-input" placeholder="Add a new task..." required>
+      <input type="date" id="due-date">
+      <select id="priority">
+        <option value="High">High</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="task-list"></ul>
+    <div class="tip"><strong>Tip:</strong> Double-click a task to edit it!</div>
+  </div>
+  <script src="../js/to-do.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Core Calendar</title>
+  <link rel="stylesheet" href="../css/cal.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="to-do.html">To-Do List</a></li>
+            <li><a href="cal.html">Calendar</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+  <div class="calendar-container">
+    <h2>Personal Calendar & Scheduler</h2>
+    <div id="calendar"></div>
+    <button id="add-event-btn">Add Event</button>
+    <div id="event-modal" class="modal">
+  <form id="event-form">
+    <input type="hidden" id="event-id">
+    <input type="text" id="event-title" placeholder="Event Title" required>
+    <input type="date" id="event-date" required>
+    <input type="time" id="event-time">
+    <select id="event-category">
+      <option value="Class">Class</option>
+      <option value="Exam">Exam</option>
+      <option value="Personal">Personal</option>
+    </select>
+    <div class="modal-actions">
+      <button type="submit" id="save-btn">Save</button>
+      <button type="button" id="delete-btn" style="display:none;">Delete</button>
+      <button type="button" id="close-modal">Cancel</button>
+    </div>
+  </form>
+</div>
+
+  </div>
+  <script src="../js/cal.js"></script>
+</body>
+</html>
