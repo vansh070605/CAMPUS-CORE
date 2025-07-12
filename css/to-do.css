@@ -1,142 +1,263 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --card-bg: rgba(20, 30, 40, 0.85);
+  --text-main: #00ffea;
+  --text-muted: #008080;
+  --primary-color: #00ffd5;
+  --primary-hover: #00bfa5;
+  --border-color: #00ffea;
+  --danger-color: #ff4c4c;
+  --shadow-color: #00ffea88;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: #f8f9fa;
-  font-family: sans-serif;
+  margin: 0;
+  font-family: 'Consolas', 'Courier New', monospace, monospace;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  max-width: 500px;
+  max-width: 480px;
   margin: 40px auto;
-  padding: 24px;
+  background-color: var(--card-bg);
+  padding: 24px 20px;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 12px #0001;
+  box-shadow: 0 0 15px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px var(--primary-color);
 }
 
 form {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
-form input, form select, form button {
-  padding: 8px;
+form input[type="text"],
+form input[type="date"],
+form select {
+  flex: 1 1 140px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  border: 1px solid #ccc;
+  font-size: 1rem;
+  color: var(--text-main);
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+form input[type="text"] {
+  flex-grow: 2;
+}
+
+form input[type="text"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+  border-color: var(--primary-hover);
+  background-color: rgba(0, 255, 218, 0.15);
+  outline: none;
 }
 
 form button {
-  background: #007bff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: #000;
   border: none;
-  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 8px var(--primary-color);
+  text-transform: uppercase;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+form button:hover {
+  background-color: var(--primary-hover);
+  color: #fff;
+  box-shadow: 0 0 12px var(--primary-hover);
 }
 
-li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
 
 .task-text {
   flex: 1;
+  margin-left: 12px;
+  font-size: 1rem;
   cursor: pointer;
+  color: var(--text-main);
+  user-select: none;
+  font-weight: 600;
 }
 
 .completed {
   text-decoration: line-through;
-  color: #888;
+  color: var(--text-muted);
+  opacity: 0.7;
 }
 
 .meta {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .due-date {
-  color: #555;
+  font-weight: 500;
+  color: var(--primary-color);
 }
 
 .priority {
-  font-weight: bold;
+  font-weight: 600;
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .priority.High {
-  background: #ffdddd;
-  color: #d00;
+  background-color: #ff4c4c;
+  color: #000;
+  border-color: #ff4c4c;
 }
+
 .priority.Medium {
-  background: #fff3cd;
-  color: #856404;
+  background-color: #00ffd5;
+  color: #000;
+  border-color: #00ffd5;
 }
+
 .priority.Low {
-  background: #d4edda;
-  color: #155724;
+  background-color: #008080;
+  color: #000;
+  border-color: #008080;
 }
 
 .delete-btn {
   background: none;
   border: none;
-  color: #d00;
-  font-size: 18px;
+  color: var(--danger-color);
+  font-size: 20px;
   cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #ff0000;
 }
 
 .edit-input {
   flex: 1;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #bbb;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  font-size: 1rem;
+  color: var(--text-main);
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: 'Consolas', 'Courier New', monospace;
 }
 
 .tip {
-  font-size: 0.9em;
-  color: #888;
+  font-size: 0.9rem;
+  color: var(--text-muted);
   margin-top: 20px;
   text-align: center;
+  font-family: 'Consolas', 'Courier New', monospace;
 }
 
+
 .navbar {
-  background: #007bff;
+  background: var(--card-bg);
   padding: 0;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   border-radius: 0 0 12px 12px;
-  box-shadow: 0 2px 8px #0002;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  border-bottom: 1.5px solid var(--border-color);
 }
 .navbar ul {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 16px;
+  padding: 0 18px;
+  justify-content: center;
 }
 .navbar li {
-  margin: 0 12px;
+  margin: 0 16px;
 }
 .navbar a {
   display: block;
-  padding: 14px 18px;
-  color: #fff;
+  padding: 14px 20px;
+  color: var(--primary-color);
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px 6px 0 0;
-  transition: background 0.2s;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+  transition: background 0.2s, color 0.2s;
 }
 .navbar a:hover, .navbar a.active {
-  background: #0056b3;
+  background: var(--primary-color);
+  color: #000;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px 12px;
+    padding: 20px 16px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input[type="text"],
+  form input[type="date"],
+  form select,
+  form button {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  ul {
+    padding: 0 4px;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .meta {
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
 }

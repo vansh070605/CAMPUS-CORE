@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Core Notes</title>
+  <link rel="stylesheet" href="../css/notes.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="../pages/to-do.html">To-Do List</a></li>
+      <li><a href="../pages/cal.html">Calendar</a></li>
+      <li><a href="../pages/notes.html" class="active">Notes</a></li>
+      <li><a href="../pages/dashboard.html">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>My Notes</h2>
+    <form id="note-form">
+      <textarea id="note-input" placeholder="Write your note here..." required></textarea>
+      <button type="submit">Add Note</button>
+    </form>
+    <div id="notes-list"></div>
+  </div>
+
+  <script src="../js/notes.js"></script>
+</body>
+</html>

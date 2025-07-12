@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Core Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="../pages/to-do.html">To-Do List</a></li>
+      <li><a href="../pages/cal.html">Calendar</a></li>
+      <li><a href="../pages/notes.html">Notes</a></li>
+      <li><a href="../pages/dashboard.html" class="active">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>My Dashboard</h2>
+    <div class="widget-controls">
+      <label><input type="checkbox" checked data-widget="todo"> To-Do List</label>
+      <label><input type="checkbox" checked data-widget="calendar"> Calendar</label>
+      <label><input type="checkbox" checked data-widget="notes"> Notes</label>
+      <label><input type="checkbox" checked data-widget="files"> Files</label>
+    </div>
+    <div id="dashboard" class="dashboard"></div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

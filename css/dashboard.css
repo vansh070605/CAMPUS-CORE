@@ -1,0 +1,162 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --card-bg: rgba(20, 30, 40, 0.85);
+  --text-main: #00ffea;
+  --text-muted: #008080;
+  --primary-color: #00ffd5;
+  --primary-hover: #00bfa5;
+  --border-color: #00ffea;
+  --shadow-color: #00ffea88;
+}
+
+body {
+  background: var(--bg-gradient);
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+}
+
+.navbar {
+  background: var(--card-bg);
+  margin-bottom: 32px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  border-bottom: 1.5px solid var(--border-color);
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 18px;
+  justify-content: center;
+}
+.navbar li {
+  margin: 0 16px;
+}
+.navbar a {
+  display: block;
+  padding: 14px 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar a:hover, .navbar a.active {
+  background: var(--primary-color);
+  color: #000;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px 18px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: 0 0 18px var(--shadow-color);
+  border: 1.5px solid var(--border-color);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--primary-color);
+  text-transform: uppercase;
+}
+
+.widget-controls {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--text-main);
+  font-size: 1em;
+}
+
+.widget-controls label {
+  background: rgba(0,0,0,0.2);
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.widget-controls input[type="checkbox"] {
+  accent-color: var(--primary-color);
+  margin-right: 6px;
+}
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  min-height: 300px;
+}
+
+.widget {
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  padding: 20px 18px;
+  min-width: 240px;
+  min-height: 120px;
+  flex: 1 1 250px;
+  box-shadow: 0 0 8px var(--shadow-color);
+  position: relative;
+  cursor: move;
+  transition: box-shadow 0.2s, background 0.2s;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1.08em;
+}
+.widget.dragging {
+  opacity: 0.6;
+  box-shadow: 0 4px 16px var(--shadow-color);
+}
+.widget-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px var(--primary-color);
+  text-transform: uppercase;
+  font-size: 1.02em;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 98vw;
+    padding: 10px 2vw;
+  }
+  .dashboard {
+    gap: 10px;
+  }
+  .widget {
+    min-width: 180px;
+    font-size: 1em;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 6px 0;
+    border-radius: 0;
+  }
+  .dashboard {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .widget {
+    min-width: 0;
+    width: 96vw;
+    font-size: 0.97em;
+  }
+}

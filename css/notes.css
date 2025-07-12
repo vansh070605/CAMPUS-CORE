@@ -1,0 +1,196 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --card-bg: rgba(20, 30, 40, 0.85);
+  --text-main: #00ffea;
+  --text-muted: #008080;
+  --primary-color: #00ffd5;
+  --primary-hover: #00bfa5;
+  --border-color: #00ffea;
+  --danger-color: #ff4c4c;
+  --shadow-color: #00ffea88;
+}
+
+body {
+  background: var(--bg-gradient);
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+}
+
+.navbar {
+  background: var(--card-bg);
+  margin-bottom: 32px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  border-bottom: 1.5px solid var(--border-color);
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 18px;
+  justify-content: center;
+}
+.navbar li {
+  margin: 0 16px;
+}
+.navbar a {
+  display: block;
+  padding: 14px 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar a:hover, .navbar a.active {
+  background: var(--primary-color);
+  color: #000;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 28px 18px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: 0 0 18px var(--shadow-color);
+  border: 1.5px solid var(--border-color);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--primary-color);
+  text-transform: uppercase;
+}
+
+#note-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+#note-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-color);
+  background: rgba(0,0,0,0.3);
+  color: var(--text-main);
+  resize: vertical;
+  min-height: 48px;
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+#note-input:focus {
+  border-color: var(--primary-hover);
+  outline: none;
+}
+
+#note-form button {
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary-color);
+  color: #000;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--primary-color);
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+#note-form button:hover {
+  background: var(--primary-hover);
+  color: #fff;
+  box-shadow: 0 0 12px var(--primary-hover);
+}
+
+#notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.note-card {
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+  padding: 18px 16px 16px 16px;
+  position: relative;
+  box-shadow: 0 0 8px var(--shadow-color);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1.05em;
+  transition: background 0.2s;
+  min-height: 54px;
+  word-break: break-word;
+}
+.note-card:hover {
+  background: rgba(0, 255, 218, 0.08);
+}
+
+.note-card .actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.note-card .actions button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.15em;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+.note-card .actions button:hover {
+  background: var(--primary-color);
+  color: #000;
+}
+.note-card.editing textarea {
+  width: 100%;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+  background: rgba(0,0,0,0.3);
+  color: var(--text-main);
+  font-family: inherit;
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 98vw;
+    padding: 10px 2vw;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 6px 0;
+    border-radius: 0;
+  }
+  #note-input, #note-form button {
+    font-size: 0.97em;
+    padding: 10px;
+  }
+  .note-card {
+    padding: 12px 8px 12px 8px;
+    font-size: 0.97em;
+  }
+}
