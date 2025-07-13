@@ -5,12 +5,11 @@
   <title>Campus Core Calendar</title>
   <link rel="stylesheet" href="../css/cal.css">
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+  <!-- Firebase v9 Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script>
-    // Firebase Initialization (only ONCE per page)
     const firebaseConfig = {
       apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
       authDomain: "campus-core.firebaseapp.com",
@@ -60,7 +59,6 @@
       </form>
     </div>
   </div>
-  <!-- Main calendar JS -->
   <script src="../js/cal.js"></script>
 </body>
 </html>

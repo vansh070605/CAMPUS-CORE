@@ -1,21 +1,4 @@
 // =====================
-// Firebase Initialization
-// =====================
-// Make sure this matches your HTML config and is loaded before this script!
-const firebaseConfig = {
-  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
-  authDomain: "campus-core.firebaseapp.com",
-  projectId: "campus-core",
-  storageBucket: "campus-core.firebasestorage.app",
-  messagingSenderId: "173053955985",
-  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
-  measurementId: "G-2JGX1VJELL"
-};
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-// =====================
 // DOM Elements & State
 // =====================
 const calendar = document.getElementById('calendar');

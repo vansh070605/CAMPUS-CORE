@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <title>Campus Core To-Do List</title>
   <link rel="stylesheet" href="../css/to-do.css">
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
-  authDomain: "campus-core.firebaseapp.com",
-  projectId: "campus-core",
-  storageBucket: "campus-core.firebasestorage.app",
-  messagingSenderId: "173053955985",
-  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
-  measurementId: "G-2JGX1VJELL"
-};
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
-</script>
-
+  <!-- Firebase v9 Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+      authDomain: "campus-core.firebaseapp.com",
+      projectId: "campus-core",
+      storageBucket: "campus-core.firebasestorage.app",
+      messagingSenderId: "173053955985",
+      appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+      measurementId: "G-2JGX1VJELL"
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
 </head>
 <body>
   <nav class="navbar">
@@ -31,6 +33,7 @@ const db = firebase.firestore();
       <li><a href="../pages/notes.html">Notes</a></li>
       <li><a href="../pages/dashboard.html">Dashboard</a></li>
     </ul>
+    <button id="logout-btn" style="float:right; margin:8px;">Logout</button>
   </nav>
 
   <div class="container">
@@ -48,11 +51,7 @@ const db = firebase.firestore();
     <ul id="task-list"></ul>
     <div class="tip"><strong>Tip:</strong> Double-click a task to edit it!</div>
   </div>
-  <button id="logout-btn">Logout</button>
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
   <script src="../js/to-do.js"></script>
 </body>
 </html>

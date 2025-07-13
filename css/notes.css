@@ -69,6 +69,26 @@ h2 {
   text-transform: uppercase;
 }
 
+button, #add-event-btn {
+  margin-top: 10px;
+  background: var(--primary-color);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--primary-color);
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+button:hover, #add-event-btn:hover {
+  background: var(--primary-hover);
+  color: #fff;
+  box-shadow: 0 0 12px var(--primary-hover);
+}
+
 #note-form {
   display: flex;
   gap: 10px;

@@ -1,21 +1,7 @@
 // =====================
-// Firebase Initialization (if not already present in HTML)
+// No Firebase Initialization here!
+// Use the global auth and db from HTML
 // =====================
-// Only include this block if you haven't already initialized Firebase in your HTML
-const firebaseConfig = {
-  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
-  authDomain: "campus-core.firebaseapp.com",
-  projectId: "campus-core",
-  storageBucket: "campus-core.firebasestorage.app",
-  messagingSenderId: "173053955985",
-  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
-  measurementId: "G-2JGX1VJELL"
-};
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-const auth = firebase.auth();
-const db = firebase.firestore();
 
 // =====================
 // DOM Elements & State
@@ -143,4 +129,16 @@ function deleteNote(idx) {
   notes.splice(idx, 1);
   saveNotes();
   renderNotes();
+}
+
+// =====================
+// Logout Button
+// =====================
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+  logoutBtn.onclick = function() {
+    auth.signOut().then(() => {
+      window.location.href = "login.html";
+    });
+  };
 }

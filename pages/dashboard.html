@@ -5,10 +5,10 @@
   <title>Campus Core Dashboard</title>
   <link rel="stylesheet" href="../css/dashboard.css">
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+  <!-- Firebase v9 Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script>
     // Firebase Initialization (only ONCE per page)
     const firebaseConfig = {
@@ -41,12 +41,6 @@
 
   <div class="container">
     <h2>My Dashboard</h2>
-    <div class="widget-controls">
-      <label><input type="checkbox" checked data-widget="todo"> To-Do List</label>
-      <label><input type="checkbox" checked data-widget="calendar"> Calendar</label>
-      <label><input type="checkbox" checked data-widget="notes"> Notes</label>
-      <label><input type="checkbox" checked data-widget="files"> Files</label>
-    </div>
     <div id="dashboard" class="dashboard"></div>
   </div>
 

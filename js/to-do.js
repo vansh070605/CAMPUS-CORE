@@ -1,22 +1,4 @@
 // =====================
-// Firebase Initialization (if not already present in HTML)
-// =====================
-const firebaseConfig = {
-  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
-  authDomain: "campus-core.firebaseapp.com",
-  projectId: "campus-core",
-  storageBucket: "campus-core.firebasestorage.app",
-  messagingSenderId: "173053955985",
-  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
-  measurementId: "G-2JGX1VJELL"
-};
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-// =====================
 // DOM & State
 // =====================
 const form = document.getElementById('todo-form');
