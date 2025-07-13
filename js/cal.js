@@ -1,3 +1,23 @@
+// =====================
+// Firebase Initialization
+// =====================
+// Make sure this matches your HTML config and is loaded before this script!
+const firebaseConfig = {
+  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+  authDomain: "campus-core.firebaseapp.com",
+  projectId: "campus-core",
+  storageBucket: "campus-core.firebasestorage.app",
+  messagingSenderId: "173053955985",
+  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+  measurementId: "G-2JGX1VJELL"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// =====================
+// DOM Elements & State
+// =====================
 const calendar = document.getElementById('calendar');
 const addEventBtn = document.getElementById('add-event-btn');
 const eventModal = document.getElementById('event-modal');
@@ -14,7 +34,43 @@ const eventCategoryInput = document.getElementById('event-category');
 
 let events = [];
 let editingEventIndex = null;
+let currentUserId = null;
 
+// =====================
+// Authentication Check & Load Events
+// =====================
+auth.onAuthStateChanged(user => {
+  if (user) {
+    currentUserId = user.uid;
+    loadEvents(currentUserId);
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
+// =====================
+// Firestore Functions
+// =====================
+function loadEvents(userId) {
+  db.collection('calendar').doc(userId).get().then(doc => {
+    if (doc.exists) {
+      events = doc.data().events || [];
+    } else {
+      events = [];
+    }
+    renderCalendar();
+  });
+}
+
+function saveEvents() {
+  if (currentUserId) {
+    db.collection('calendar').doc(currentUserId).set({ events });
+  }
+}
+
+// =====================
+// Calendar Rendering
+// =====================
 function renderCalendar() {
   calendar.innerHTML = '';
   const now = new Date();
@@ -43,7 +99,7 @@ function renderCalendar() {
     dayDiv.className = 'day';
     dayDiv.textContent = day;
 
-    // Add events
+    // Add events for this day
     events
       .filter(e => e.date === dateStr)
       .forEach((e, idx) => {
@@ -60,6 +116,9 @@ function renderCalendar() {
   }
 }
 
+// =====================
+// Modal Functions
+// =====================
 function openAddEventModal() {
   eventIdInput.value = '';
   eventTitleInput.value = '';
@@ -68,6 +127,7 @@ function openAddEventModal() {
   eventCategoryInput.value = 'Class';
   deleteBtn.style.display = 'none';
   eventModal.classList.add('active');
+  editingEventIndex = null;
 }
 
 function openEditEventModal(id) {
@@ -84,7 +144,11 @@ function openEditEventModal(id) {
   editingEventIndex = idx;
 }
 
+// =====================
+// Event Handlers
+// =====================
 addEventBtn.onclick = openAddEventModal;
+
 closeModal.onclick = () => {
   eventModal.classList.remove('active');
   editingEventIndex = null;
@@ -106,6 +170,7 @@ eventForm.onsubmit = (e) => {
     // Add new event
     events.push({ id, title, date, time, category });
   }
+  saveEvents();
   eventModal.classList.remove('active');
   eventForm.reset();
   renderCalendar();
@@ -115,18 +180,31 @@ deleteBtn.onclick = function() {
   if (editingEventIndex !== null) {
     events.splice(editingEventIndex, 1);
     editingEventIndex = null;
+    saveEvents();
     eventModal.classList.remove('active');
     eventForm.reset();
     renderCalendar();
   }
 };
 
-renderCalendar();
-
-// Place this script at the end of your HTML file
+// =====================
+// Navbar Active Link (Optional)
+// =====================
 const links = document.querySelectorAll('.navbar a');
 links.forEach(link => {
   if (link.href === window.location.href) {
     link.classList.add('active');
   }
 });
+
+// =====================
+// Logout Button (if present)
+// =====================
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+  logoutBtn.onclick = function() {
+    auth.signOut().then(() => {
+      window.location.href = "login.html";
+    });
+  };
+}

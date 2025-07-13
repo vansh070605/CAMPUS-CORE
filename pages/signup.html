@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Core Sign Up</title>
+  <link rel="stylesheet" href="../css/signup.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script>
+    // Firebase Initialization (only ONCE per page)
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+      authDomain: "campus-core.firebaseapp.com",
+      projectId: "campus-core",
+      storageBucket: "campus-core.firebasestorage.app",
+      messagingSenderId: "173053955985",
+      appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+      measurementId: "G-2JGX1VJELL"
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+  </script>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Campus Core Sign Up</h2>
+    <form id="signup-form" autocomplete="off">
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+      <div id="signup-error"></div>
+    </form>
+    <div class="signup-links">
+      <span>Already have an account?</span>
+      <a href="login.html">Log In</a>
+    </div>
+  </div>
+  <script src="../js/signup.js"></script>
+</body>
+</html>

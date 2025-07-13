@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <title>Campus Core Notes</title>
   <link rel="stylesheet" href="../css/notes.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+  <script>
+    // Firebase Initialization (only ONCE per page)
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+      authDomain: "campus-core.firebaseapp.com",
+      projectId: "campus-core",
+      storageBucket: "campus-core.firebasestorage.app",
+      messagingSenderId: "173053955985",
+      appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+      measurementId: "G-2JGX1VJELL"
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -14,6 +36,7 @@
       <li><a href="../pages/notes.html" class="active">Notes</a></li>
       <li><a href="../pages/dashboard.html">Dashboard</a></li>
     </ul>
+    <button id="logout-btn" style="float:right; margin:8px;">Logout</button>
   </nav>
 
   <div class="container">

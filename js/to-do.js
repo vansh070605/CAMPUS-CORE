@@ -1,24 +1,78 @@
+// =====================
+// Firebase Initialization (if not already present in HTML)
+// =====================
+const firebaseConfig = {
+  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+  authDomain: "campus-core.firebaseapp.com",
+  projectId: "campus-core",
+  storageBucket: "campus-core.firebasestorage.app",
+  messagingSenderId: "173053955985",
+  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+  measurementId: "G-2JGX1VJELL"
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-
+// =====================
+// DOM & State
+// =====================
 const form = document.getElementById('todo-form');
 const taskInput = document.getElementById('task-input');
 const dueDateInput = document.getElementById('due-date');
 const priorityInput = document.getElementById('priority');
 const taskList = document.getElementById('task-list');
-
 let tasks = [];
+let currentUserId = null;
 
+// =====================
+// Auth State Listener
+// =====================
+auth.onAuthStateChanged(user => {
+  if (user) {
+    currentUserId = user.uid;
+    loadTasks(currentUserId);
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
+// =====================
+// Firestore Functions
+// =====================
+function loadTasks(userId) {
+  db.collection('tasks').doc(userId).get().then(doc => {
+    if (doc.exists) {
+      tasks = doc.data().tasks || [];
+    } else {
+      tasks = [];
+    }
+    renderTasks();
+  });
+}
+
+function saveTasks() {
+  if (currentUserId) {
+    db.collection('tasks').doc(currentUserId).set({ tasks });
+  }
+}
+
+// =====================
+// Task Functions
+// =====================
 function renderTasks() {
   taskList.innerHTML = '';
   tasks.forEach((task, idx) => {
     const li = document.createElement('li');
-
     // Checkbox
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
     checkbox.addEventListener('change', () => {
       task.completed = !task.completed;
+      saveTasks();
       renderTasks();
     });
     li.appendChild(checkbox);
@@ -84,11 +138,13 @@ function addTask(e) {
   taskInput.value = '';
   dueDateInput.value = '';
   priorityInput.value = 'Medium';
+  saveTasks();
   renderTasks();
 }
 
 function deleteTask(idx) {
   tasks.splice(idx, 1);
+  saveTasks();
   renderTasks();
 }
 
@@ -100,13 +156,25 @@ function startEdit(idx) {
 function finishEdit(idx, newText) {
   tasks[idx].text = newText.trim() || tasks[idx].text;
   tasks[idx].editing = false;
+  saveTasks();
   renderTasks();
 }
 
+// =====================
+// Event Listeners
+// =====================
 form.addEventListener('submit', addTask);
-renderTasks();
 
-// Place this script at the end of your HTML file
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+  logoutBtn.onclick = function() {
+    auth.signOut().then(() => {
+      window.location.href = "login.html";
+    });
+  };
+}
+
+// Navbar active link (optional)
 const links = document.querySelectorAll('.navbar a');
 links.forEach(link => {
   if (link.href === window.location.href) {

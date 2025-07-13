@@ -1,3 +1,23 @@
+// =====================
+// Firebase Initialization (if not already present in HTML)
+// =====================
+// Make sure this matches your HTML config and is loaded before this script!
+const firebaseConfig = {
+  apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+  authDomain: "campus-core.firebaseapp.com",
+  projectId: "campus-core",
+  storageBucket: "campus-core.firebasestorage.app",
+  messagingSenderId: "173053955985",
+  appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+  measurementId: "G-2JGX1VJELL"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// =====================
+// DOM Elements & State
+// =====================
 const dashboard = document.getElementById('dashboard');
 const widgetControls = document.querySelectorAll('.widget-controls input[type=checkbox]');
 
@@ -21,11 +41,49 @@ const widgets = {
   }
 };
 
-let widgetOrder = JSON.parse(localStorage.getItem('widgetOrder')) || ['todo', 'calendar', 'notes', 'files'];
-let widgetVisibility = JSON.parse(localStorage.getItem('widgetVisibility')) || {
-  todo: true, calendar: true, notes: true, files: true
-};
+let widgetOrder = ['todo', 'calendar', 'notes', 'files'];
+let widgetVisibility = { todo: true, calendar: true, notes: true, files: true };
+let currentUserId = null;
 
+// =====================
+// Authentication Check & Load Dashboard Preferences
+// =====================
+auth.onAuthStateChanged(user => {
+  if (user) {
+    currentUserId = user.uid;
+    loadDashboardPrefs(currentUserId);
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
+// =====================
+// Firestore Functions
+// =====================
+function loadDashboardPrefs(userId) {
+  db.collection('dashboard').doc(userId).get().then(doc => {
+    if (doc.exists) {
+      const data = doc.data();
+      widgetOrder = data.widgetOrder || widgetOrder;
+      widgetVisibility = data.widgetVisibility || widgetVisibility;
+    }
+    renderDashboard();
+    updateWidgetControls();
+  });
+}
+
+function saveDashboardPrefs() {
+  if (currentUserId) {
+    db.collection('dashboard').doc(currentUserId).set({
+      widgetOrder,
+      widgetVisibility
+    });
+  }
+}
+
+// =====================
+// Rendering & Controls
+// =====================
 function renderDashboard() {
   dashboard.innerHTML = '';
   widgetOrder.forEach(widgetKey => {
@@ -38,6 +96,12 @@ function renderDashboard() {
     dashboard.appendChild(widget);
   });
   addDragAndDrop();
+}
+
+function updateWidgetControls() {
+  widgetControls.forEach(control => {
+    control.checked = widgetVisibility[control.dataset.widget];
+  });
 }
 
 // Drag-and-drop functionality
@@ -53,7 +117,7 @@ function addDragAndDrop() {
     w.addEventListener('dragend', function() {
       this.classList.remove('dragging');
       dragged = null;
-      localStorage.setItem('widgetOrder', JSON.stringify(widgetOrder));
+      saveDashboardPrefs();
     });
     w.addEventListener('dragover', function(e) {
       e.preventDefault();
@@ -64,6 +128,7 @@ function addDragAndDrop() {
         if (from !== to) {
           widgetOrder.splice(to, 0, widgetOrder.splice(from, 1)[0]);
           renderDashboard();
+          saveDashboardPrefs();
         }
       }
     });
@@ -72,12 +137,31 @@ function addDragAndDrop() {
 
 // Widget visibility controls
 widgetControls.forEach(control => {
-  control.checked = widgetVisibility[control.dataset.widget];
   control.onchange = function() {
     widgetVisibility[this.dataset.widget] = this.checked;
-    localStorage.setItem('widgetVisibility', JSON.stringify(widgetVisibility));
+    saveDashboardPrefs();
     renderDashboard();
   };
 });
 
-renderDashboard();
+// =====================
+// Navbar Active Link (Optional)
+// =====================
+const links = document.querySelectorAll('.navbar a');
+links.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
+});
+
+// =====================
+// Logout Button (if present)
+// =====================
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+  logoutBtn.onclick = function() {
+    auth.signOut().then(() => {
+      window.location.href = "login.html";
+    });
+  };
+}
