@@ -1,6 +1,6 @@
 :root {
   --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: rgba(20, 30, 40, 0.85);
+  --card-bg: rgba(20, 30, 40, 0.90);
   --primary-color: #00ffd5;
   --primary-hover: #00bfa5;
   --border-color: #00ffea;
@@ -16,11 +16,47 @@ body {
   font-family: 'Consolas', 'Courier New', monospace;
   color: var(--text-main);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.login-container {
+.welcome-message {
+  width: 100vw;
+  text-align: center;
+  padding: 32px 0 18px 0;
+  font-size: 1.4rem;
+  color: #fff;
+  background: none;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-family: 'Consolas', 'Courier New', monospace;
+  text-shadow:
+    0 0 8px var(--primary-color),
+    0 0 16px #00fff7,
+    0 0 24px #00ffd5;
+  animation: glow 2.5s ease-in-out infinite alternate;
+  margin-bottom: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 8px var(--primary-color),
+      0 0 16px #00fff7,
+      0 0 24px #00ffd5;
+  }
+  to {
+    text-shadow:
+      0 0 24px var(--primary-color),
+      0 0 32px #00fff7,
+      0 0 48px #00ffd5;
+  }
+}
+
+.login-box {
   background: var(--card-bg);
   padding: 38px 28px 28px 28px;
   border-radius: 16px;
@@ -31,9 +67,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 0;
 }
 
-h2 {
+.login-box h2 {
   color: var(--primary-color);
   font-weight: 700;
   letter-spacing: 2px;
@@ -109,4 +146,15 @@ h2 {
 }
 .login-links a:hover {
   color: var(--primary-hover);
+}
+
+@media (max-width: 600px) {
+  .welcome-message {
+    font-size: 1.08rem;
+    padding: 18px 0 10px 0;
+  }
+  .login-box {
+    padding: 24px 8px 18px 8px;
+    min-width: 0;
+  }
 }
