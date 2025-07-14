@@ -24,11 +24,26 @@ CAMPUS-CORE/
 │   ├── notes.html
 │   ├── signup.html
 │   └── to-do.html
-├── assets/
-│   ├── styles.css
-│   └── animations.css
-├── vercel.json
-└── README.md
+├── css/
+│   ├── cal.css
+│   ├── clock.css
+│   ├── dashboard.css
+│   ├── login.css
+│   ├── notes.css
+│   ├── signup.css
+│   └── to-do.css
+├── js/
+│   ├── cal.js
+│   ├── clock.js
+│   ├── dashboard.js
+│   ├── login.js
+│   ├── notes.js
+│   ├── signup.js
+│   └── to-do.js
+├── package-lock.json
+├── package.json
+├── README.md
+└── vercel.json
 ```
 
 ---
