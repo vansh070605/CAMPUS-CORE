@@ -24,11 +24,26 @@ CAMPUS-CORE/
 │   ├── notes.html
 │   ├── signup.html
 │   └── to-do.html
-├── assets/
-│   ├── styles.css
-│   └── animations.css
-├── vercel.json
-└── README.md
+├── css/
+│   ├── cal.css
+│   ├── clock.css
+│   ├── dashboard.css
+│   ├── login.css
+│   ├── notes.css
+│   ├── signup.css
+│   └── to-do.css
+├── js/
+│   ├── cal.js
+│   ├── clock.js
+│   ├── dashboard.js
+│   ├── login.js
+│   ├── notes.js
+│   ├── signup.js
+│   └── to-do.js
+├── package-lock.json
+├── package.json
+├── README.md
+└── vercel.json
 ```
 
 ---
@@ -36,9 +51,6 @@ CAMPUS-CORE/
 ## 🖥️ Live Demo
 
 [![Live Demo](https://img.shields.io/badge/Visit%20Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=vercel)](https://campus-core-one.vercel.app/pages/login.html)
-
-> 🌐 **Main Login Page:**  
-> [`https://campus-core-one.vercel.app/pages/login.html`](https://campus-core-one.vercel.app/pages/login.html)
 
 **Explore other features:**
 - 🏠 [Dashboard](https://campus-core-one.vercel.app/pages/dashboard.html)
