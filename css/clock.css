@@ -1,17 +1,17 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: rgba(20, 30, 40, 0.97);
-  --primary-color: #00ffd5;
-  --primary-hover: #00bfa5;
-  --border-color: #00ffea;
-  --shadow-color: #00ffea88;
-  --text-main: #00ffea;
-  --danger-color: #ff4c4c;
+  --bg-gradient: linear-gradient(120deg, #f7faff 0%, #e3e8f0 100%);
+  --card-bg: #fff;
+  --primary-color: #6366f1;
+  --primary-hover: #4338ca;
+  --border-color: #e5e7eb;
+  --danger-color: #ef4444;
+  --shadow-color: rgba(99, 102, 241, 0.08);
+  --text-main: #222b45;
 }
 
 body {
   background: var(--bg-gradient);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--text-main);
   min-height: 100vh;
   margin: 0;
@@ -19,33 +19,71 @@ body {
 
 .navbar {
   background: var(--card-bg);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   border-radius: 0 0 12px 12px;
   box-shadow: 0 2px 12px var(--shadow-color);
   border-bottom: 1.5px solid var(--border-color);
+  position: relative;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .navbar ul {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 18px;
+  padding: 0 8px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .navbar li {
-  margin: 0 16px;
+  margin: 0 7px;
 }
 .navbar a {
   display: block;
-  padding: 14px 20px;
+  padding: 12px 14px;
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 700;
   border-radius: 8px 8px 0 0;
   transition: background 0.2s, color 0.2s;
+  font-size: 1.08rem;
 }
 .navbar a:hover, .navbar a.active {
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
+}
+
+/* Logout Button Top-Right */
+.logout-btn, #logout-btn {
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  background: var(--danger-color);
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 7px;
+  font-size: 0.97rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  z-index: 10;
+  height: 34px;
+  line-height: 22px;
+  width: auto;
+  min-width: 0;
+  margin-top: 0 !important;
+}
+.logout-btn:hover, #logout-btn:hover, .logout-btn:focus, #logout-btn:focus {
+  background: #b91c1c;
+  color: #fff;
+  box-shadow: 0 4px 18px #ef4444aa;
+  outline: none;
 }
 
 .clock-suite-container {
@@ -54,7 +92,7 @@ body {
   padding: 30px 18px 38px 18px;
   border-radius: 18px;
   background: var(--card-bg);
-  box-shadow: 0 0 24px var(--shadow-color);
+  box-shadow: 0 4px 32px var(--shadow-color);
   border: 1.5px solid var(--border-color);
   text-align: center;
 }
@@ -81,7 +119,7 @@ body {
 }
 .tab-btn.active, .tab-btn:hover {
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
 }
 
 .tab-content { display: none; }
@@ -90,11 +128,11 @@ body {
 .clock-digital {
   font-size: 3.2em;
   font-weight: bold;
-  color: #fff;
+  color: var(--primary-color);
   text-shadow: 0 0 16px var(--primary-color);
   margin: 40px 0 20px 0;
   letter-spacing: 2px;
-  background: rgba(0,255,218,0.03);
+  background: #f6f7fb;
   border-radius: 14px;
   padding: 32px 0;
   border: 1.5px solid var(--border-color);
@@ -106,7 +144,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 18px 0;
-  background: rgba(0,255,218,0.03);
+  background: #f6f7fb;
   border-radius: 14px;
   border: 1.5px solid var(--border-color);
   box-shadow: 0 0 10px var(--primary-color);
@@ -116,7 +154,7 @@ body {
 #timer-display, #stopwatch-display {
   font-size: 2.6em;
   font-weight: bold;
-  color: #fff;
+  color: var(--primary-color);
   text-shadow: 0 0 14px var(--primary-color);
   letter-spacing: 2px;
   width: 100%;
@@ -131,7 +169,7 @@ body {
 }
 .timer-controls button, .stopwatch-controls button, .alarm-setter button {
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
   border: none;
   padding: 10px 18px;
   border-radius: 8px;
@@ -148,7 +186,7 @@ body {
 }
 
 input[type="number"], input[type="time"] {
-  background: rgba(0,0,0,0.2);
+  background: #f3f6fa;
   border: 1.5px solid var(--primary-color);
   border-radius: 7px;
   color: var(--text-main);
@@ -191,6 +229,27 @@ input[type="number"]:focus, input[type="time"]:focus {
   color: #ff0000;
 }
 
+button, #add-event-btn {
+  margin-top: 10px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--primary-color);
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+button:hover, #add-event-btn:hover {
+  background: var(--primary-hover);
+  color: #fff;
+  box-shadow: 0 0 12px var(--primary-hover);
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   .clock-suite-container {
     max-width: 98vw;
@@ -207,24 +266,11 @@ input[type="number"]:focus, input[type="time"]:focus {
   .timer-circle, .stopwatch-circle {
     padding: 18px 0;
   }
-}
-
-button, #add-event-btn {
-  margin-top: 10px;
-  background: var(--primary-color);
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 7px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 0 8px var(--primary-color);
-  text-transform: uppercase;
-  transition: background 0.2s, color 0.2s;
-}
-button:hover, #add-event-btn:hover {
-  background: var(--primary-hover);
-  color: #fff;
-  box-shadow: 0 0 12px var(--primary-hover);
+  .logout-btn, #logout-btn {
+    top: 8px;
+    right: 8px;
+    padding: 5px 10px;
+    font-size: 0.93rem;
+    height: 30px;
+  }
 }

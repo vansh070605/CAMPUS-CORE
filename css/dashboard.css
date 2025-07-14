@@ -1,19 +1,21 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: rgba(20, 30, 40, 0.90);
-  --text-main: #00ffea;
-  --primary-color: #00ffd5;
-  --primary-hover: #00bfa5;
-  --border-color: #00ffea;
-  --shadow-color: #00ffea88;
-  --header-bg: #14202b;
-  --header-text: #00ffd5;
-  --row-alt: rgba(0,255,218,0.06);
+  --bg-gradient: linear-gradient(120deg, #f7faff 0%, #e3e8f0 100%);
+  --card-bg: #fff;
+  --text-main: #222b45;
+  --text-muted: #8f9bb3;
+  --primary-color: #6366f1;
+  --primary-hover: #4338ca;
+  --border-color: #e5e7eb;
+  --danger-color: #ef4444;
+  --shadow-color: rgba(99, 102, 241, 0.08);
+  --header-bg: #f3f6fa;
+  --header-text: #6366f1;
+  --row-alt: #f3f6fa;
 }
 
 body {
   background: var(--bg-gradient);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--text-main);
   min-height: 100vh;
   margin: 0;
@@ -21,62 +23,80 @@ body {
 
 .navbar {
   background: var(--card-bg);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   border-radius: 0 0 12px 12px;
   box-shadow: 0 2px 12px var(--shadow-color);
   border-bottom: 1.5px solid var(--border-color);
+  position: relative;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .navbar ul {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 18px;
+  padding: 0 8px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .navbar li {
-  margin: 0 16px;
+  margin: 0 7px;
 }
 .navbar a {
   display: block;
-  padding: 14px 20px;
+  padding: 12px 14px;
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 700;
   border-radius: 8px 8px 0 0;
   transition: background 0.2s, color 0.2s;
+  font-size: 1.08rem;
 }
 .navbar a:hover, .navbar a.active {
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
 }
 
-button, #add-event-btn {
-  margin-top: 10px;
-  background: var(--primary-color);
-  color: #000;
+/* Logout Button Top-Right */
+.logout-btn, #logout-btn {
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  background: var(--danger-color);
+  color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 6px 16px;
   border-radius: 7px;
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 0 8px var(--primary-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
   text-transform: uppercase;
-  transition: background 0.2s, color 0.2s;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  z-index: 10;
+  height: 34px;
+  line-height: 22px;
+  width: auto;
+  min-width: 0;
+  margin-top: 0 !important;
 }
-button:hover, #add-event-btn:hover {
-  background: var(--primary-hover);
+.logout-btn:hover, #logout-btn:hover, .logout-btn:focus, #logout-btn:focus {
+  background: #b91c1c;
   color: #fff;
-  box-shadow: 0 0 12px var(--primary-hover);
+  box-shadow: 0 4px 18px #ef4444aa;
+  outline: none;
 }
 
 .container {
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 28px 18px;
-  border-radius: 14px;
+  margin: 48px auto;
+  padding: 32px 24px;
+  border-radius: 18px;
   background: var(--card-bg);
-  box-shadow: 0 0 18px var(--shadow-color);
+  box-shadow: 0 4px 32px var(--shadow-color);
   border: 1.5px solid var(--border-color);
 }
 
@@ -84,10 +104,11 @@ h2 {
   text-align: center;
   margin-bottom: 28px;
   color: var(--primary-color);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
-  text-shadow: 0 0 8px var(--primary-color);
+  text-shadow: 0 2px 8px var(--shadow-color);
   text-transform: uppercase;
+  font-size: 2.1rem;
 }
 
 .dashboard {
@@ -101,13 +122,13 @@ h2 {
 }
 
 .widget {
-  background: rgba(20, 30, 40, 0.90);
+  background: #f6f7fb;
   border-radius: 14px;
   padding: 18px 18px 18px 18px;
   min-width: 300px;
   max-width: 350px;
   flex: 0 0 320px;
-  box-shadow: 0 0 8px var(--shadow-color);
+  box-shadow: 0 2px 7px var(--shadow-color);
   border: 1.5px solid var(--border-color);
   color: var(--text-main);
   font-family: inherit;
@@ -135,6 +156,7 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 10px;
+  background: transparent;
 }
 
 .widget-table th,
@@ -170,7 +192,7 @@ h2 {
   display: inline-block;
   margin-top: 16px;
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
   border: none;
   padding: 10px 22px;
   border-radius: 8px;
@@ -234,5 +256,12 @@ h2 {
     width: 98vw;
     font-size: 0.97em;
     max-width: 98vw;
+  }
+  .logout-btn, #logout-btn {
+    top: 8px;
+    right: 8px;
+    padding: 5px 10px;
+    font-size: 0.93rem;
+    height: 30px;
   }
 }

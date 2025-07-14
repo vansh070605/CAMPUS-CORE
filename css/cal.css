@@ -1,41 +1,129 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: rgba(20, 30, 40, 0.85);
-  --text-main: #00ffea;
-  --text-muted: #008080;
-  --primary-color: #00ffd5;
-  --primary-hover: #00bfa5;
-  --border-color: #00ffea;
-  --danger-color: #ff4c4c;
-  --shadow-color: #00ffea88;
+  --bg-gradient: linear-gradient(120deg, #f7faff 0%, #e3e8f0 100%);
+  --card-bg: #fff;
+  --text-main: #222b45;
+  --text-muted: #8f9bb3;
+  --primary-color: #6366f1;
+  --primary-hover: #4338ca;
+  --border-color: #e5e7eb;
+  --danger-color: #ef4444;
+  --shadow-color: rgba(99, 102, 241, 0.08);
 }
 
 body {
   background: var(--bg-gradient);
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--text-main);
   min-height: 100vh;
   margin: 0;
 }
 
+.navbar {
+  background: var(--card-bg);
+  margin-bottom: 28px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  border-bottom: 1.5px solid var(--border-color);
+  position: relative;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.navbar li {
+  margin: 0 7px;
+}
+
+.navbar a {
+  display: block;
+  padding: 12px 14px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.08rem;
+}
+.navbar a:hover, .navbar a.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Logout Button Top-Right */
+.logout-btn, #logout-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: var(--danger-color);
+  color: #fff;
+  border: none;
+  padding: 5px 16px !important;
+  border-radius: 6px;
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  z-index: 10;
+  height: auto;
+  width: auto;
+  min-width: 0;
+  line-height: 1.1;
+  display: inline-block;
+}
+.logout-btn:hover, #logout-btn:hover, .logout-btn:focus, #logout-btn:focus {
+  background: #b91c1c;
+  color: #fff;
+  box-shadow: 0 4px 18px #ef4444aa;
+  outline: none;
+}
+
+/* --- Override global button styles for logout only --- */
+.logout-btn, #logout-btn {
+  margin-top: 0 !important;
+}
+
+/* Responsive: even smaller on mobile */
+@media (max-width: 700px) {
+  .logout-btn, #logout-btn {
+    top: 7px;
+    right: 7px;
+    padding: 4px 9px !important;
+    font-size: 0.90rem !important;
+  }
+}
+
 .calendar-container {
   max-width: 650px;
-  margin: 40px auto;
-  padding: 28px 18px;
-  border-radius: 14px;
+  margin: 48px auto;
+  padding: 32px 24px;
+  border-radius: 18px;
   background: var(--card-bg);
-  box-shadow: 0 0 18px var(--shadow-color);
+  box-shadow: 0 4px 32px var(--shadow-color);
   border: 1.5px solid var(--border-color);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: var(--primary-color);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
-  text-shadow: 0 0 8px var(--primary-color);
+  text-shadow: 0 2px 8px var(--shadow-color);
   text-transform: uppercase;
+  font-size: 2.1rem;
 }
 
 #calendar {
@@ -47,28 +135,28 @@ h2 {
 
 .day {
   padding: 14px 6px 10px 6px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: #f6f7fb;
   min-height: 80px;
   position: relative;
   color: var(--text-main);
   box-shadow: 0 0 8px var(--shadow-color);
-  border: 1px solid var(--border-color);
+  border: 1.5px solid var(--border-color);
   font-family: inherit;
   font-size: 1rem;
   transition: background 0.2s;
 }
 
 .day:hover {
-  background: rgba(0, 255, 218, 0.08);
+  background: #e0e7ff;
 }
 
 .event {
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
   padding: 3px 7px;
   border-radius: 5px;
-  font-size: 0.95em;
+  font-size: 0.97em;
   margin-top: 6px;
   display: block;
   font-weight: 600;
@@ -76,28 +164,30 @@ h2 {
   border: 1.5px solid var(--border-color);
   transition: background 0.2s;
 }
-.event.Class { background: #00ffd5; color: #000; }
-.event.Exam { background: #ff4c4c; color: #fff; }
-.event.Personal { background: #008080; color: #fff; }
+.event.Class { background: #6366f1; color: #fff; }
+.event.Exam { background: #ef4444; color: #fff; }
+.event.Personal { background: #14b8a6; color: #fff; }
 
 button, #add-event-btn {
   margin-top: 10px;
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 7px;
-  font-size: 1rem;
-  font-weight: 700;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 0 8px var(--primary-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
   text-transform: uppercase;
-  transition: background 0.2s, color 0.2s;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  width: 100%;
 }
 button:hover, #add-event-btn:hover {
   background: var(--primary-hover);
   color: #fff;
-  box-shadow: 0 0 12px var(--primary-hover);
+  box-shadow: 0 4px 18px var(--primary-hover);
 }
 
 .modal {
@@ -121,17 +211,18 @@ button:hover, #add-event-btn:hover {
   border: 1.5px solid var(--border-color);
 }
 #event-form input, #event-form select {
-  background: rgba(0, 0, 0, 0.3);
+  background: #f3f6fa;
   color: var(--text-main);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 10px 12px;
-  font-size: 1rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 7px;
+  padding: 12px 14px;
+  font-size: 1.08rem;
   font-family: inherit;
   transition: border-color 0.2s;
 }
 #event-form input:focus, #event-form select:focus {
-  border-color: var(--primary-hover);
+  border-color: var(--primary-color);
+  background: #e0e7ff;
   outline: none;
 }
 .modal-actions {
@@ -144,42 +235,10 @@ button:hover, #add-event-btn:hover {
   color: #fff;
   border: none;
   font-weight: 700;
-  box-shadow: 0 0 8px #ff4c4c88;
+  box-shadow: 0 0 8px #ef4444aa;
 }
 #delete-btn:hover {
-  background: #ff1a1a;
-}
-
-.navbar {
-  background: var(--card-bg);
-  padding: 0;
-  margin-bottom: 32px;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 2px 12px var(--shadow-color);
-  border-bottom: 1.5px solid var(--border-color);
-}
-.navbar ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0 18px;
-  justify-content: center;
-}
-.navbar li {
-  margin: 0 16px;
-}
-.navbar a {
-  display: block;
-  padding: 14px 20px;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 8px 8px 0 0;
-  transition: background 0.2s, color 0.2s;
-}
-.navbar a:hover, .navbar a.active {
-  background: var(--primary-color);
-  color: #000;
+  background: #b91c1c;
 }
 
 @media (max-width: 700px) {
@@ -198,6 +257,13 @@ button:hover, #add-event-btn:hover {
   h2 {
     font-size: 1.2rem;
   }
+  .logout-btn, #logout-btn {
+    top: 8px;
+    right: 8px;
+    padding: 5px 10px;
+    font-size: 0.93rem;
+    height: 30px;
+  }
 }
 @media (max-width: 480px) {
   .calendar-container {
@@ -213,3 +279,4 @@ button:hover, #add-event-btn:hover {
     font-size: 0.92rem;
   }
 }
+
