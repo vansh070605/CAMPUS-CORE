@@ -163,22 +163,3 @@ links.forEach(link => {
     link.classList.add('active');
   }
 });
-
-const hamburger = document.getElementById('hamburger-btn');
-const navLinks = document.querySelector('.navbar ul');
-
-hamburger.addEventListener('click', function() {
-  navLinks.classList.toggle('open');
-  hamburger.classList.toggle('active');
-  // For accessibility
-  hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-});
-
-// Optional: Close menu when a link is clicked (mobile)
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-  });
-});

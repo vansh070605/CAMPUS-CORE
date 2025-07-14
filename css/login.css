@@ -1,19 +1,20 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: rgba(20, 30, 40, 0.90);
-  --primary-color: #00ffd5;
-  --primary-hover: #00bfa5;
-  --border-color: #00ffea;
-  --danger-color: #ff4c4c;
-  --shadow-color: #00ffea88;
-  --text-main: #00ffea;
+  --bg-gradient: linear-gradient(120deg, #f7faff 0%, #e3e8f0 100%);
+  --card-bg: #fff;
+  --primary-color: #6366f1;
+  --primary-hover: #4338ca;
+  --border-color: #e5e7eb;
+  --danger-color: #ef4444;
+  --shadow-color: rgba(99, 102, 241, 0.08);
+  --text-main: #222b45;
+  --text-muted: #8f9bb3;
 }
 
 body {
   background: var(--bg-gradient);
   min-height: 100vh;
   margin: 0;
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: var(--text-main);
   display: flex;
   flex-direction: column;
@@ -26,15 +27,15 @@ body {
   text-align: center;
   padding: 32px 0 18px 0;
   font-size: 1.4rem;
-  color: #fff;
+  color: var(--primary-color);
   background: none;
   letter-spacing: 1px;
   font-weight: 700;
-  font-family: 'Consolas', 'Courier New', monospace;
+  font-family: inherit;
   text-shadow:
     0 0 8px var(--primary-color),
-    0 0 16px #00fff7,
-    0 0 24px #00ffd5;
+    0 0 16px #e0e7ff,
+    0 0 24px #c7d2fe;
   animation: glow 2.5s ease-in-out infinite alternate;
   margin-bottom: 0;
   user-select: none;
@@ -45,22 +46,22 @@ body {
   from {
     text-shadow:
       0 0 8px var(--primary-color),
-      0 0 16px #00fff7,
-      0 0 24px #00ffd5;
+      0 0 16px #e0e7ff,
+      0 0 24px #c7d2fe;
   }
   to {
     text-shadow:
       0 0 24px var(--primary-color),
-      0 0 32px #00fff7,
-      0 0 48px #00ffd5;
+      0 0 32px #e0e7ff,
+      0 0 48px #c7d2fe;
   }
 }
 
 .login-box {
   background: var(--card-bg);
-  padding: 38px 28px 28px 28px;
-  border-radius: 16px;
-  box-shadow: 0 0 18px var(--shadow-color);
+  padding: 38px 32px 32px 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px var(--shadow-color);
   border: 1.5px solid var(--border-color);
   min-width: 320px;
   max-width: 98vw;
@@ -72,51 +73,53 @@ body {
 
 .login-box h2 {
   color: var(--primary-color);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
   text-shadow: 0 0 8px var(--primary-color);
   text-transform: uppercase;
   margin-bottom: 22px;
+  font-size: 2rem;
 }
 
 #login-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   width: 100%;
 }
 
 #login-form input {
-  background: rgba(0, 0, 0, 0.3);
+  background: #f3f6fa;
   color: var(--text-main);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 12px 14px;
-  font-size: 1rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1.08rem;
   font-family: inherit;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.2s;
 }
 
 #login-form input:focus {
-  border-color: var(--primary-hover);
+  border-color: var(--primary-color);
+  background: #e0e7ff;
   outline: none;
 }
 
 #login-form button {
   background: var(--primary-color);
-  color: #000;
+  color: #fff;
   border: none;
-  padding: 12px 0;
-  border-radius: 7px;
-  font-size: 1rem;
+  padding: 14px 0;
+  border-radius: 9px;
+  font-size: 1.08rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 0 8px var(--primary-color);
   text-transform: uppercase;
   transition: background 0.2s, color 0.2s;
   margin-top: 8px;
+  letter-spacing: 1px;
 }
-
 #login-form button:hover {
   background: var(--primary-hover);
   color: #fff;
@@ -125,17 +128,19 @@ body {
 
 #login-error {
   color: var(--danger-color);
-  font-size: 0.98em;
+  font-size: 1em;
   margin-top: 2px;
   min-height: 18px;
   text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .login-links {
   margin-top: 18px;
   text-align: center;
-  font-size: 0.97em;
-  color: var(--text-main);
+  font-size: 1em;
+  color: var(--text-muted);
+  font-family: inherit;
 }
 .login-links a {
   color: var(--primary-color);
@@ -154,7 +159,16 @@ body {
     padding: 18px 0 10px 0;
   }
   .login-box {
-    padding: 24px 8px 18px 8px;
+    padding: 22px 6px 16px 6px;
     min-width: 0;
+    border-radius: 0;
+  }
+  .login-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+  }
+  #login-form input, #login-form button {
+    font-size: 1rem;
+    padding: 12px 10px;
   }
 }
