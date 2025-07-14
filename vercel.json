@@ -1,5 +1,11 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/pages/signup.html" }
+    { "source": "/cal", "destination": "/pages/cal.html" },
+    { "source": "/clock", "destination": "/pages/clock.html" },
+    { "source": "/dashboard", "destination": "/pages/dashboard.html" },
+    { "source": "/login", "destination": "/pages/login.html" },
+    { "source": "/notes", "destination": "/pages/notes.html" },
+    { "source": "/signup", "destination": "/pages/signup.html" },
+    { "source": "/to-do", "destination": "/pages/to-do.html" }
   ]
 }
