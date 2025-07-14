@@ -33,9 +33,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 }
 
-.navbar ul {
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  z-index: 120;
+  padding: 0;
+}
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay nav for mobile */
+.nav-overlay {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.nav-overlay ul {
   display: flex;
   list-style: none;
   margin: 0;
@@ -44,11 +87,11 @@ body {
   flex-wrap: wrap;
 }
 
-.navbar li {
+.nav-overlay li {
   margin: 0 7px;
 }
 
-.navbar a {
+.nav-overlay a {
   display: block;
   padding: 12px 14px;
   color: var(--primary-color);
@@ -58,7 +101,7 @@ body {
   transition: background 0.2s, color 0.2s;
   font-size: 1.08rem;
 }
-.navbar a:hover, .navbar a.active {
+.nav-overlay a:hover, .nav-overlay a.active {
   background: var(--primary-color);
   color: #fff;
 }
@@ -67,7 +110,7 @@ body {
 .logout-btn, #logout-btn {
   position: absolute;
   top: 14px;
-  right: 24px;
+  right: 56px;
   background: var(--danger-color);
   color: #fff;
   border: none;
@@ -80,9 +123,12 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  z-index: 10;
+  z-index: 130;
   height: 34px;
   line-height: 22px;
+  width: auto;
+  min-width: 0;
+  margin-top: 0 !important;
 }
 .logout-btn:hover, #logout-btn:hover, .logout-btn:focus, #logout-btn:focus {
   background: #b91c1c;
@@ -90,6 +136,108 @@ body {
   box-shadow: 0 4px 18px #ef4444aa;
   outline: none;
 }
+
+/* Mobile Nav Overlay */
+@media (max-width: 700px) {
+  .navbar {
+    min-height: 48px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30,40,60,0.97);
+    z-index: 110;
+    transform: translateY(-100%);
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+    box-shadow: 0 0 40px var(--shadow-color);
+  }
+  .nav-overlay.open {
+    transform: translateY(0);
+  }
+  .nav-overlay ul {
+    flex-direction: column;
+    margin: 80px 0 0 0;
+    padding: 0;
+    width: 100vw;
+    align-items: flex-start;
+  }
+  .nav-overlay li {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    margin: 0;
+  }
+  .nav-overlay a {
+    display: block;
+    width: 100%;
+    padding: 20px 32px;
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    background: none;
+    border-radius: 0;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-overlay a:hover, .nav-overlay a.active {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  .logout-btn, #logout-btn {
+    top: 16px;
+    right: 16px;
+    z-index: 130;
+    padding: 7px 14px;
+    font-size: 0.98rem;
+    height: auto;
+  }
+}
+
+/* Desktop: normal nav */
+@media (min-width: 701px) {
+  .nav-overlay {
+    position: static !important;
+    background: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .nav-overlay ul {
+    flex-direction: row !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    width: auto !important;
+    align-items: center !important;
+  }
+  .nav-overlay li {
+    border-bottom: none !important;
+    margin: 0 7px !important;
+    width: auto !important;
+  }
+  .nav-overlay a {
+    padding: 12px 14px !important;
+    font-size: 1.08rem !important;
+    border-radius: 8px 8px 0 0 !important;
+    color: var(--primary-color) !important;
+    background: none !important;
+  }
+  .nav-overlay a:hover, .nav-overlay a.active {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+  }
+}
+
+/* --- Rest of your page styles (container, form, tasks etc.) --- */
 
 .container {
   max-width: 480px;
@@ -274,29 +422,4 @@ ul#task-list {
   margin-top: 18px;
   text-align: center;
   font-family: inherit;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .navbar {
-    min-height: 48px;
-  }
-  .logout-btn, #logout-btn {
-    top: 8px;
-    right: 8px;
-    padding: 5px 10px;
-    font-size: 0.93rem;
-    height: 30px;
-  }
-  .container {
-    margin: 10px 0;
-    padding: 10px 2vw;
-    min-width: 0;
-    max-width: 100vw;
-    border-radius: 0;
-  }
-  h2 {
-    font-size: 1.13rem;
-    margin-bottom: 10px;
-  }
 }
