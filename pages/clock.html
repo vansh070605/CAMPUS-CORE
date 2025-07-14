@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clock Suite | Campus Core</title>
+  <link rel="stylesheet" href="../css/clock.css">
+
+  <!-- Firebase v9 Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqpT2QDgI3HH7cC1su3OM02qvPapprM1E",
+      authDomain: "campus-core.firebaseapp.com",
+      projectId: "campus-core",
+      storageBucket: "campus-core.firebasestorage.app",
+      messagingSenderId: "173053955985",
+      appId: "1:173053955985:web:ba34f5f9004ccf2dc7d430",
+      measurementId: "G-2JGX1VJELL"
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="../pages/to-do.html">To-Do List</a></li>
+      <li><a href="../pages/cal.html">Calendar</a></li>
+      <li><a href="../pages/notes.html">Notes</a></li>
+      <li><a href="../pages/dashboard.html">Dashboard</a></li>
+      <li><a href="../pages/clock.html" class="active">Clock Suite</a></li>
+    </ul>
+    <button id="logout-btn" style="float:right; margin:8px;">Logout</button>
+  </nav>
+
+  <div class="clock-suite-container">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="clock">🕐 Clock</button>
+      <button class="tab-btn" data-tab="timer">⏲️ Timer</button>
+      <button class="tab-btn" data-tab="stopwatch">⏱️ Stopwatch</button>
+      <button class="tab-btn" data-tab="alarm">⏰ Alarm</button>
+    </div>
+    <div class="tab-content active" id="clock-tab">
+      <div class="clock-digital" id="live-clock"></div>
+    </div>
+    <div class="tab-content" id="timer-tab">
+      <div class="timer-circle">
+        <div id="timer-display">00:00</div>
+      </div>
+      <div class="timer-controls">
+        <input type="number" id="timer-minutes" min="0" max="99" placeholder="Min" style="width:60px;">
+        <input type="number" id="timer-seconds" min="0" max="59" placeholder="Sec" style="width:60px;">
+        <button id="timer-start">Start</button>
+        <button id="timer-pause">Pause</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+      <div id="timer-status"></div>
+    </div>
+    <div class="tab-content" id="stopwatch-tab">
+      <div class="stopwatch-circle">
+        <div id="stopwatch-display">00:00:00</div>
+      </div>
+      <div class="stopwatch-controls">
+        <button id="stopwatch-start">Start</button>
+        <button id="stopwatch-pause">Pause</button>
+        <button id="stopwatch-reset">Reset</button>
+        <button id="stopwatch-lap">Lap</button>
+      </div>
+      <ul id="stopwatch-laps"></ul>
+    </div>
+    <div class="tab-content" id="alarm-tab">
+      <div class="alarm-setter">
+        <input type="time" id="alarm-time">
+        <button id="alarm-set">Set Alarm</button>
+      </div>
+      <ul id="alarm-list"></ul>
+      <div id="alarm-status"></div>
+    </div>
+  </div>
+  <script src="../js/clock.js"></script>
+</body>
+</html>
