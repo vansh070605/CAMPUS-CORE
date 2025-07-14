@@ -38,7 +38,6 @@ Visit:
 Or use other clean URLs (see below).
 
 ## 🎬 Preview
-<img width="1920" height="958" alt="Screenshot (193)" src="https://github.com/user-attachments/assets/c7a40f95-04fb-49ad-94bc-ec2590c1018c" />
 <img width="1920" height="957" alt="Screenshot (194)" src="https://github.com/user-attachments/assets/5a0ed5a8-e72e-4d83-a749-69a36c300fe9" />
 <img width="1920" height="956" alt="Screenshot (195)" src="https://github.com/user-attachments/assets/ce499158-72f8-4581-a8f6-5063f6ab30e7" />
 <img width="1920" height="956" alt="Screenshot (196)" src="https://github.com/user-attachments/assets/b4bb0a59-b88a-4982-908c-afcc2c6491b1" />
