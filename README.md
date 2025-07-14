@@ -1,6 +1,8 @@
 # 🚀 CAMPUS CORE
 
 > **Your all-in-one campus productivity suite!**
+> <img width="1920" height="958" alt="Screenshot (193)" src="https://github.com/user-attachments/assets/4cdf76eb-bffd-4add-bf7f-73c581108486" />
+
 
 ## ✨ Features
 
@@ -120,7 +122,3 @@ Pull requests are welcome! For major changes, open an issue first to discuss wha
 [GitHub](https://github.com/vansh070605)
 
 _Made with ❤️ for campus productivity!_
-
-**Tip:**  
-Personalize this README by adding more GIFs, custom badges, and screenshots of your actual UI!  
-Let me know if you want even more enhancements or custom sections.
