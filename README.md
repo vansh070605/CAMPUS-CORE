@@ -36,7 +36,7 @@ CAMPUS-CORE/
 ## 🖥️ Live Demo
 
 Visit:  
-**[https://campus-core-one.vercel.app/login](https://campus-core-one.vercel.app/login)**  
+**[https://campus-core-one.vercel.app/login]([https://campus-core-one.vercel.app/login](https://campus-core-one.vercel.app/pages/login.html))**  
 Or use other clean URLs (see below).
 
 ---
