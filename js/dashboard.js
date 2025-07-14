@@ -58,7 +58,7 @@ function renderDashboardWidgets(tasks, events, notes) {
           ).join('')}
       </tbody>
     </table>
-    <a href="../pages/to-do.html" class="dashboard-btn">View All</a>
+    <a href="../pages/to-do.html" class="dashboard-btn">View All To-Do's</a>
   `;
   dashboard.appendChild(todoWidget);
 
