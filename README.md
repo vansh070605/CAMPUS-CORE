@@ -35,18 +35,19 @@ CAMPUS-CORE/
 
 ## 🖥️ Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Visit%20Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=vercel)](https://campus-core-one.vercel.app/login)
+[![Live Demo](https://img.shields.io/badge/Visit%20Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=vercel)](https://campus-core-one.vercel.app/pages/login.html)
 
 > 🌐 **Main Login Page:**  
-> [`https://campus-core-one.vercel.app/login`](https://campus-core-one.vercel.app/login)
+> [`https://campus-core-one.vercel.app/pages/login.html`](https://campus-core-one.vercel.app/pages/login.html)
 
-Or try these direct links to other features:
-- [Dashboard](https://campus-core-one.vercel.app/dashboard)
-- [To-Do List](https://campus-core-one.vercel.app/to-do)
-- [Notes](https://campus-core-one.vercel.app/notes)
-- [Calendar](https://campus-core-one.vercel.app/cal)
-- [Clock Suite](https://campus-core-one.vercel.app/clock)
-- [Signup](https://campus-core-one.vercel.app/signup)
+**Explore other features:**
+- 🏠 [Dashboard](https://campus-core-one.vercel.app/pages/dashboard.html)
+- ✅ [To-Do List](https://campus-core-one.vercel.app/pages/to-do.html)
+- 📝 [Notes](https://campus-core-one.vercel.app/pages/notes.html)
+- 📅 [Calendar](https://campus-core-one.vercel.app/pages/cal.html)
+- ⏰ [Clock Suite](https://campus-core-one.vercel.app/pages/clock.html)
+- 🔐 [Signup](https://campus-core-one.vercel.app/pages/signup.html)
+
 
 
 ---
