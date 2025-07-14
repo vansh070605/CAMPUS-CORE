@@ -52,9 +52,6 @@ CAMPUS-CORE/
 
 [![Live Demo](https://img.shields.io/badge/Visit%20Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=vercel)](https://campus-core-one.vercel.app/pages/login.html)
 
-> 🌐 **Main Login Page:**  
-> [`https://campus-core-one.vercel.app/pages/login.html`](https://campus-core-one.vercel.app/pages/login.html)
-
 **Explore other features:**
 - 🏠 [Dashboard](https://campus-core-one.vercel.app/pages/dashboard.html)
 - ✅ [To-Do List](https://campus-core-one.vercel.app/pages/to-do.html)
