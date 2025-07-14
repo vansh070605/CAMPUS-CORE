@@ -35,9 +35,19 @@ CAMPUS-CORE/
 
 ## 🖥️ Live Demo
 
-Visit:  
-**(https://campus-core-one.vercel.app/pages/login.html)**  
-Or use other clean URLs (see below).
+[![Live Demo](https://img.shields.io/badge/Visit%20Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=vercel)](https://campus-core-one.vercel.app/login)
+
+> 🌐 **Main Login Page:**  
+> [`https://campus-core-one.vercel.app/login`](https://campus-core-one.vercel.app/login)
+
+Or try these direct links to other features:
+- [Dashboard](https://campus-core-one.vercel.app/dashboard)
+- [To-Do List](https://campus-core-one.vercel.app/to-do)
+- [Notes](https://campus-core-one.vercel.app/notes)
+- [Calendar](https://campus-core-one.vercel.app/cal)
+- [Clock Suite](https://campus-core-one.vercel.app/clock)
+- [Signup](https://campus-core-one.vercel.app/signup)
+
 
 ---
 
