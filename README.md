@@ -110,27 +110,6 @@ Below are screenshots showcasing the core features of CAMPUS CORE, each labeled 
 
 ---
 
-## 🌈 Animations & UI
-
-- Animated icons and transitions powered by CSS and [LottieFiles](https://lottiefiles.com/).
-- Add GIFs or SVGs for a lively campus experience!
-- Example (add to your HTML):
-    ```
-    <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="Animated Banner" />
-    ```
-- For custom CSS animations, use `assets/animations.css`:
-    ```
-    .fade-in {
-      animation: fadeIn 1s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    ```
-
----
-
 ## 📚 Pages Overview
 
 | Route         | File Path                | Description          |
@@ -142,15 +121,6 @@ Below are screenshots showcasing the core features of CAMPUS CORE, each labeled 
 | `/notes`      | `pages/notes.html`      | Notes                |
 | `/signup`     | `pages/signup.html`     | Signup               |
 | `/to-do`      | `pages/to-do.html`      | To-Do List           |
-
----
-
-## 💡 Pro Tips
-
-- Use [Shields.io](https://shields.io/) for custom badges.
-- Use [LottieFiles](https://lottiefiles.com/) for animated SVGs.
-- Add [AOS](https://michalsnik.github.io/aos/) for scroll animations.
-- Add screenshots or GIFs to showcase your UI and features.
 
 ---
 
