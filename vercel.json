@@ -1,11 +1,11 @@
 {
   "rewrites": [
-    { "source": "/cal", "destination": "/pages/cal.html" },
-    { "source": "/clock", "destination": "/pages/clock.html" },
-    { "source": "/dashboard", "destination": "/pages/dashboard.html" },
-    { "source": "/login", "destination": "/pages/login.html" },
-    { "source": "/notes", "destination": "/pages/notes.html" },
-    { "source": "/signup", "destination": "/pages/signup.html" },
-    { "source": "/to-do", "destination": "/pages/to-do.html" }
+    { "source": "/cal.html", "destination": "/pages/cal.html" },
+    { "source": "/clock.html", "destination": "/pages/clock.html" },
+    { "source": "/dashboard.html", "destination": "/pages/dashboard.html" },
+    { "source": "/login.html", "destination": "/pages/login.html" },
+    { "source": "/notes.html", "destination": "/pages/notes.html" },
+    { "source": "/signup.html", "destination": "/pages/signup.html" },
+    { "source": "/to-do.html", "destination": "/pages/to-do.html" }
   ]
 }
