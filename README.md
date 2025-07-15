@@ -69,31 +69,31 @@ CAMPUS-CORE/
 Below are screenshots showcasing the core features of CAMPUS CORE, each labeled for clarity:
 
 **1. To-Do List**  
-<img width="1920" height="957" alt="Screenshot (194)" src="https://github.com/user-attachments/assets/5a0ed5a8-e72e-4d83-a749-69a36c300fe9" />  
+<img width="1920" height="1080" alt="Screenshot (211)" src="https://github.com/user-attachments/assets/94f8aa09-dc83-4233-89a0-fa8227e485da" />
 *This screenshot displays the To-Do List interface, where users can organize and manage their tasks efficiently.*
 
 ---
 
 **2. Calendar**  
-<img width="1920" height="956" alt="Screenshot (195)" src="https://github.com/user-attachments/assets/ce499158-72f8-4581-a8f6-5063f6ab30e7" />  
+<img width="1920" height="1080" alt="Screenshot (212)" src="https://github.com/user-attachments/assets/830d1773-53e9-4542-95df-be141e57a96e" />
 *This screenshot highlights the Calendar feature, helping users keep track of important dates and events.*
 
 ---
 
 **3. Notes**  
-<img width="1920" height="956" alt="Screenshot (196)" src="https://github.com/user-attachments/assets/b4bb0a59-b88a-4982-908c-afcc2c6491b1" />  
+<img width="1920" height="1080" alt="Screenshot (214)" src="https://github.com/user-attachments/assets/ccaa3cb7-6224-42f0-af9b-e974113c402a" />
 *This screenshot showcases the Notes section, designed for easy note-taking and organization.*
 
 ---
 
 **4. Dashboard**  
-<img width="1920" height="951" alt="Screenshot (197)" src="https://github.com/user-attachments/assets/ebef661a-75a5-48da-9050-2dbaaf21d4b9" />  
+<img width="1920" height="1080" alt="Screenshot (216)" src="https://github.com/user-attachments/assets/44c4be21-c3e3-42eb-863f-49074b4400de" />
 *This screenshot presents the main Dashboard, providing a comprehensive overview of your campus productivity suite.*
 
 ---
 
 **5. Clock Suite**  
-<img width="1920" height="961" alt="Screenshot (198)" src="https://github.com/user-attachments/assets/c16baf39-c406-4e87-8231-ad545e841994" />  
+<img width="1920" height="1080" alt="Screenshot (217)" src="https://github.com/user-attachments/assets/8b3366d8-3e8f-44fa-8a36-c0a17678ce93" />
 *This screenshot features the Clock Suite, offering time management tools such as clocks and timers.*
 
 ---
