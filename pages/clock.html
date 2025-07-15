@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Clock Suite | Campus Core</title>
   <link rel="stylesheet" href="../css/clock.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Firebase v9 Compat SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -28,14 +28,19 @@
 </head>
 <body>
   <nav class="navbar">
-    <ul>
-      <li><a href="../pages/to-do.html">To-Do List</a></li>
-      <li><a href="../pages/cal.html">Calendar</a></li>
-      <li><a href="../pages/notes.html">Notes</a></li>
-      <li><a href="../pages/dashboard.html">Dashboard</a></li>
-      <li><a href="../pages/clock.html" class="active">Clock Suite</a></li>
-    </ul>
-    <button id="logout-btn" style="float:right; margin:8px;">Logout</button>
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay" id="nav-overlay">
+      <ul>
+        <li><a href="../pages/to-do.html">To-Do List</a></li>
+        <li><a href="../pages/cal.html">Calendar</a></li>
+        <li><a href="../pages/notes.html">Notes</a></li>
+        <li><a href="../pages/dashboard.html">Dashboard</a></li>
+        <li><a href="../pages/clock.html" class="active">Clock Suite</a></li>
+      </ul>
+    </div>
+    <button id="logout-btn" class="logout-btn">Logout</button>
   </nav>
 
   <div class="clock-suite-container">
@@ -83,5 +88,27 @@
     </div>
   </div>
   <script src="../js/clock.js"></script>
+  <script>
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger-btn');
+    const navOverlay = document.getElementById('nav-overlay');
+
+    if (hamburger && navOverlay) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', navOverlay.classList.contains('open'));
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-overlay a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          navOverlay.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', "false");
+        });
+      });
+    }
+  </script>
 </body>
 </html>
