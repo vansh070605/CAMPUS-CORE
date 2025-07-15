@@ -1,7 +1,8 @@
 # 🚀 CAMPUS CORE
 
 > **Your all-in-one campus productivity suite!**
-> <img width="1920" height="958" alt="Screenshot (193)" src="https://github.com/user-attachments/assets/4cdf76eb-bffd-4add-bf7f-73c581108486" />
+> <img width="1920" height="1080" alt="Screenshot (219)" src="https://github.com/user-attachments/assets/36e229bc-6fba-487f-804b-2073dd58b324" />
+
 
 
 ## ✨ Features
