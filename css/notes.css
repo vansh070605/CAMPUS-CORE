@@ -319,7 +319,7 @@ h2::after {
   border-radius: 12px;
   border: 2px solid var(--border-color);
   background: rgba(255, 255, 255, 0.9);
-  color: var(--text-main);
+  color: black;
   resize: vertical;
   min-height: 120px;
   font-size: 1.1em;
@@ -484,7 +484,7 @@ h2::after {
   padding: 16px 20px;
   font-size: 1.05em;
   background: rgba(255, 255, 255, 0.9);
-  color: var(--text-main);
+  color: black;
   font-family: inherit;
   min-height: 100px;
   resize: vertical;
